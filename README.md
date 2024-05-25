@@ -7,6 +7,7 @@
 - [Unit Testing](#unit-testing)
 - [Spring Security Setup](#spring-security-setup)
 - [Dependencies](#dependencies)
+- [Postman documentation](#postman-documentation)
 
 ## Setup Instructions
 
@@ -28,8 +29,9 @@
 6. **Run the application**
    ```bash
    mvn spring-boot:run
-
-7. **Access the application:**
+7. In this project I used MYSQL, so setup your MYSQL or any relational database of your choice, create a schema `bookstore-test`
+   
+8. **Access the application:**
    - The application will be running at `http://localhost:9090`
 
 ## API Documentation
@@ -236,6 +238,9 @@
 ### Test Dependencies
 - **Spring Boot Starter Test:** For integration testing.
 - **Mockito:** For unit testing and mocking.
+
+## Postman Documentation
+You can access the API documentation [here](https://documenter.getpostman.com/view/23480248/2sA3QqgYFs)
 
 #### Disclaimer:
 This project is for findar assessment test. This project cannot be used in production environment.
