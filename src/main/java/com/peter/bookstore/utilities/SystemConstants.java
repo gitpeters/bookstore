@@ -7,5 +7,8 @@ public class SystemConstants {
     public static final String SUCCESS = "success";
     public static final String ERROR = "error";
     public static final String COULD_NOT_SAVE_BOOK_RECORD = "could not save book record";
+    public static final String BOOK_ALREADY_EXIST = "book with the same title belong to this author already exists";
+
+
 
 }

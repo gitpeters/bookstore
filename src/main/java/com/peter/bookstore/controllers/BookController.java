@@ -2,16 +2,18 @@ package com.peter.bookstore.controllers;
 
 import com.peter.bookstore.dtos.BookRequest;
 import com.peter.bookstore.dtos.BookResponse;
+
 import com.peter.bookstore.services.IBookService;
 import com.peter.bookstore.utilities.SystemConstants;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.connector.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Objects;
+
+import static com.peter.bookstore.utilities.UtilityClass.validateRequestBody;
 
 
 @RestController
@@ -26,7 +28,8 @@ public class BookController {
     }
 
     @GetMapping
-    public ResponseEntity<List<BookResponse>> fetchAllBooks(@RequestParam(name = "page", defaultValue = "1") int page, @RequestParam(name = "page", defaultValue = "10") int pageSize){
+    public ResponseEntity<List<BookResponse>> fetchAllBooks(@RequestParam(name = "page", defaultValue = "1") int page,
+                                                            @RequestParam(name = "pageSize", defaultValue = "10") int pageSize){
         return ResponseEntity.ok(bookService.getAllBooks(page, pageSize));
     }
 
@@ -38,12 +41,18 @@ public class BookController {
         return ResponseEntity.badRequest().body(SystemConstants.NOT_FOUND);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<?> searchForBook(@RequestParam("searchKey")String searchKey){
+        return ResponseEntity.ok(bookService.searchForBook(searchKey));
+    }
+
     @PatchMapping("/{id}")
     public ResponseEntity<?> updateBookRecord(@PathVariable String id, @RequestBody BookRequest request){
-        if(Objects.nonNull(bookService.updateBookRecord(id, request))){
-            return ResponseEntity.ok(bookService.updateBookRecord(id, request));
-        }
-        return ResponseEntity.badRequest().body(SystemConstants.NOT_FOUND);
+        return ResponseEntity.ok(bookService.updateBookRecord(id, request));
+    }
+    @PatchMapping("/{id}/update-book-status")
+    public ResponseEntity<?> updateBookStatus(@PathVariable String id){
+        return ResponseEntity.ok(bookService.updateBookStatus(id));
     }
 
     @DeleteMapping("/{id}")

@@ -6,8 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Entity
 @Table(name = "books")
 @NoArgsConstructor
@@ -16,7 +14,7 @@ import java.time.LocalDateTime;
 public class Book extends BaseEntity{
     private String bookName;
     private String authorName;
-    private String ISBN;
+    private String isbn;
     private String publishedDate;
     private boolean isAvailable;
 }

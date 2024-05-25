@@ -6,6 +6,6 @@ import lombok.Data;
 public class BookRequest {
     private String bookName;
     private String authorName;
-    private String ISBN;
+    private String isbn;
     private String publishedDate;
 }

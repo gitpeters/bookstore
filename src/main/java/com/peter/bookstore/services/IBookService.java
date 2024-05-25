@@ -2,7 +2,7 @@ package com.peter.bookstore.services;
 
 import com.peter.bookstore.dtos.BookRequest;
 import com.peter.bookstore.dtos.BookResponse;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 import java.util.List;
 
@@ -16,4 +16,8 @@ public interface IBookService {
     BookResponse updateBookRecord(String id, BookRequest request);
 
     BookResponse deleteBook(String id);
+
+    List<BookResponse> searchForBook(String searchKey);
+
+    BookResponse updateBookStatus(String id);
 }
