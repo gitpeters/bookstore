@@ -195,10 +195,38 @@
 - Add the following dependencies to your pom.xml:
   ```xml
      <dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-security</artifactId>
-  </dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-security</artifactId>
+     </dependency>
+- **Authentication:** Basic form authentication
 
+- **Authenticated endpoints:**
+  ##### ADMIN only access
+  - create book
+  - update book
+  - fetch book by id
+  - delete book
+   ##### CLERK only access
+     - fetch book by id
+     - update book availability status
+   ##### PUBLIC access
+     - fetch all books
+     - search for books
+
+- **Login credentials:**
+  ##### ADMIN
+  ```json
+     {
+     "username": "admin",
+     "password": "admin"
+     }
+  ```
+   ##### CLERK
+  ```json
+     {
+     "username": "clerk",
+     "password": "password"
+     }
 ## Dependencies
 ### Main Dependencies
 - **Spring Boot Starter Data JPA:** For database interactions.
