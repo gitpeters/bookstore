@@ -16,7 +16,7 @@
    
 2. **Navigate to the project directory:**
    ```bash
-   cd bookstore-api
+   cd bookstore
    
 3. **Install the dependencies and build the project**
    ```bash
