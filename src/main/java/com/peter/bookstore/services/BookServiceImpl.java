@@ -39,8 +39,8 @@ public class BookServiceImpl implements IBookService{
         if(bookOptional.isPresent()) throw new BadRequestException(BOOK_ALREADY_EXIST);
         try{
             Book book = UtilityClass.buildBookEntity(request);
-            bookRepository.save(book);
-            return UtilityClass.buildBookResponse(book);
+            Book savedBook = bookRepository.save(book);
+            return UtilityClass.buildBookResponse(savedBook);
         }catch (Exception e){
             throw new InternalServerException(COULD_NOT_SAVE_BOOK_RECORD);
         }
